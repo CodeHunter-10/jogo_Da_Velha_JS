@@ -1,0 +1,354 @@
+html , body {
+height: 100%;
+padding: 0;
+margin: 0;
+} 
+ body {
+    display: flex;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.2px;
+    user-select: none;
+    width: 100%;
+    background-image: linear-gradient(135deg, #000000, #001F4D, #0044FF, #000000);
+    background-size: 300% 300%;
+    animation: glitchBackground 40s ease infinite;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+    #jogodavelha{
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(3,1fr);
+      aspect-ratio: 1 / 1;
+      gap: 5px;
+      width: 90vw;
+      height: 90vw;
+      max-height:500px;
+      max-width: 500px;
+      animation: boardBreath 6s ease-in-out infinite;
+    }
+      .tabuleiro{
+        background: linear-gradient(145deg, #f5deb3, #e8cfa3);
+        border-radius: 12px;
+        border: 1px solid rgba(0,0,0,0.15);
+        box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.6),
+        0 6px 12px rgba(0,0,0,0.45);
+        margin: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: crosshair;
+        font-size: clamp(65px, 20vw, 110px);}
+        .tabuleiro:hover {
+          filter: brightness(1.05);
+          transform: translateY(-3px) scale(1.03);
+        }
+        .tabuleiro:active {
+          transform: translateY(2px) scale(0.97);
+          box-shadow:
+            inset 0 4px 6px rgba(0,0,0,0.4);
+        }
+        .tabuleiro p {
+          font-weight: 800;
+          letter-spacing: 2px;
+          text-shadow:
+            0 3px 6px rgba(0,0,0,0.6),
+            0 0 12px rgba(0,0,0,0.4);
+        }
+/*MENU DO JOGO*/
+  #Menu{
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    padding: 40px 50px;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+    #Titulo {
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 32px;
+      }
+    #iniciar {
+        padding: 12px 25px;
+        font-size: 16px;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+      #iniciar:hover {
+          transform: scale(1.05);
+            box-shadow:
+              inset 0 -3px 0 rgba(0,0,0,0.25),
+              0 8px 20px rgba(0,0,0,0.4);
+      }
+      #iniciar:active {
+          transform: translateY(2px);
+          box-shadow:inset 0 3px 6px rgba(0,0,0,0.4);
+      }
+
+/*PLACAR DO JOGO*/
+  #Master_Placar {
+    width: 100%;
+    height: 62px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(16px, 4vw, 32px);
+
+
+    padding: 28px 28px;
+    border-radius: 18px;
+
+    background: linear-gradient(
+      145deg,
+      rgba(255,255,255,0.95),
+      rgba(240,240,240,0.85)
+    );
+    box-shadow:
+      0 12px 25px rgba(0,0,0,0.35),
+      inset 0 1px 0 rgba(255,255,255,0.6);
+
+    margin-bottom: 24px;
+  }
+    #Master_Placar p {
+      text-align: center;
+      margin: 0;
+    }
+    .Placar_Jogo{
+      font-size: 3.2em; 
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    .Placar_Numerico{
+      font-size: 3em;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+      #O {
+        color: #ef4444;
+        text-shadow:
+          0 0 10px rgba(239,68,68,0.8),
+          0 0 20px rgba(239,68,68,0.5);
+      }
+      #X {
+        color: #3b82f6;
+        text-shadow:
+        0 0 10px rgba(59,130,246,0.8),
+        0 0 20px rgba(59,130,246,0.5);
+      }
+    #Placar_O {
+      filter: drop-shadow(0 0 8px rgba(239,68,68,0.6));
+    }
+    #Placar_X {
+      filter: drop-shadow(0 0 8px rgba(59,130,246,0.6));
+    }
+  /*Animacoes do Site(ATUALIZAR OS NOMES DAS ANIMACOES )*/
+
+  @keyframes boardBreath {
+    0%, 100% {
+      transform:scale(1);
+    }
+    50% {
+      transform:scale(1.01);
+    }
+  }
+@keyframes winPop {
+  0% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 
+      0 0 5px rgba(255,255,255,0.4),
+      0 0 10px rgba(59,130,246,0.5),
+      0 0 20px rgba(59,130,246,0.3);
+    color: #3b82f6;
+  }
+  25% {
+    transform: scale(1.05) rotate(-2deg);
+    text-shadow: 
+      0 0 10px rgba(255,255,255,0.6),
+      0 0 20px rgba(59,130,246,0.7),
+      0 0 30px rgba(59,130,246,0.5);
+    color: #60a5fa;
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+    text-shadow: 
+      0 0 15px rgba(255,255,255,0.7),
+      0 0 30px rgba(59,130,246,0.8),
+      0 0 40px rgba(59,130,246,0.6);
+    color: #2563eb;
+  }
+  75% {
+    transform: scale(1.05) rotate(-1deg);
+    text-shadow: 
+      0 0 10px rgba(255,255,255,0.6),
+      0 0 20px rgba(59,130,246,0.7),
+      0 0 30px rgba(59,130,246,0.5);
+    color: #3b82f6;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 
+      0 0 5px rgba(255,255,255,0.4),
+      0 0 10px rgba(59,130,246,0.5),
+      0 0 20px rgba(59,130,246,0.3);
+    color: #60a5fa;
+  }
+}
+  @keyframes glitchBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 0% 100%;
+    }
+    75% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+@keyframes bgGlitch {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes turnPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/*===================================================*/
+
+  #vitoria{
+    display: none;
+    position:fixed ;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(.2,1.4,.4,1), opacity 0.5s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(145deg, #f5deb3, #e8cfa3);
+    background-size: 400% 400%;
+    animation: bgGlitch 10s ease infinite;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), 
+    inset 0 2px 10px rgba(255,255,255,0.3);
+    padding: 25px;
+    /*filhos*/
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    text-align: center;
+    /*Aspecto Quadrado*/
+    aspect-ratio: 1 / 1;
+      width: 50vw;
+      height: 50vw;
+      max-height:250px;
+      max-width: 250px;
+  }
+  #mensagemDeVitoria{
+      display: block;
+      /*controlado pelo Javascript*/
+      font-weight: bold;
+      color: #111827;
+      font-size: 16px;
+      animation: winPop 1.5s cubic-bezier(.2,1.4,.4,1) infinite;
+    }    #reset{/*display controlado pelo Javascript*/
+      max-width: 100px;}
+
+#vitoria button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color: #fff;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+#vitoria button:hover {
+  transform: scale(1.05);
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 64px;
+
+  background: #1118276c; /* sólido, estável */
+
+  border-top: 2px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 -10px 20px rgba(0,0,0,0.6);
+
+  padding: 10px;
+}
+#proximaJogadaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 28px;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    #f5deb3,
+    #e8cfa3
+  );
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  font-size: 1.1em;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  animation: boardBreath 6s ease-in-out infinite;
+}
+
+#proximaJogadaContainer.x {
+  color: #3b82f6;
+  text-shadow:
+    0 0 10px rgba(59,130,246,0.8),
+    0 0 20px rgba(59,130,246,0.5);
+}
+
+#proximaJogadaContainer.o {
+  color: #ef4444;
+  text-shadow:
+    0 0 10px rgba(239,68,68,0.8),
+    0 0 20px rgba(239,68,68,0.5);
+}
+#proximaJogadaContainer.turn {
+  animation: turnPop 0.4s ease-in-out;
+}

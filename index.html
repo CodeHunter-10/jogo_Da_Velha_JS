@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Jogo da Velha</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/Css/reset.css">
+    <link rel="stylesheet" href="/src/Css/style.css">
+</head>
+<body>
+    <header>
+        <section id="Master_Placar">
+                    <p class="Placar_Jogo" id="X">X</p>
+                    <p class="Placar_Numerico" id="Placar_X">0</P>
+                    <br>
+                    <p class="Placar_Jogo" id="O">O</p>
+                    <p class="Placar_Numerico" id="Placar_O">0</p>
+                    <br>
+                    <p class="Placar_Jogo" id="Empate">#</p>
+                    <p class="Placar_Numerico" id="Placar_Empate">0</p>
+        </section>
+    </header>
+    <main>
+            <div id="Menu">
+                <h1 id="Titulo">Jogo da Velha</h1>
+                <button id="iniciar">Iniciar Jogo <br>PvP</button>
+                    <br>
+            </div>
+            <div id="vitoria"> 
+                <p id="mensagemDeVitoria">Vencedor</p>
+                <br>
+                <button id="reset">Jogar<br>Novamente </button>
+                <button id="Menu_Principal">Menu Principal</button>
+            </div>
+            <br>
+        <div id="jogodavelha" >
+                <div class="tabuleiro" id="a1"><p></p></div>
+                <div class="tabuleiro" id="a2"><p></p></div>
+                <div class="tabuleiro" id="a3"><p></p></div>
+                <div class="tabuleiro" id="a4"><p></p></div>
+                <div class="tabuleiro" id="a5"><p></p></div>
+                <div class="tabuleiro" id="a6"><p></p></div>
+                <div class="tabuleiro" id="a7"><p></p></div>
+                <div class="tabuleiro" id="a8"><p></p></div>
+                <div class="tabuleiro" id="a9"><p></p></div>
+        </div>
+    </main>
+    <footer id="footer">
+        <section style="background-color: white;" id="proximaJogadaContainer">
+            <p id="proximaJogada"></p>
+        </section>
+    </footer>
+    <script type="module" src="./src/Js/Logica.js"></script>
+    <script type="module" src="./src/Js/interface.js"></script>
+    <script type="module" src="./src/Js/Estado.js"></script>
+    <script type="module" src="./src/Js/Dom.js" ></script>
+    <script type="module" src="./src/Js/JavaScript.js"></script>
+</body>
+</html>
